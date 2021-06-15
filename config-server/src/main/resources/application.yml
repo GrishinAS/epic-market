@@ -1,0 +1,25 @@
+# Application-wide configuration
+server:
+  port: 8811
+
+# Cloud Config Server configuration.
+# For development and testing purposes I'd like to store configurations at local environment
+# In future we should move it to a git repository
+spring:
+  application:
+    name: cloud-config-server
+  # Make native profile active. It allows to store configurations in a classpath
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/
+
+# Configuring Eureka client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka

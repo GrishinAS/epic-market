@@ -1,0 +1,25 @@
+# Base config for receiving main configuration from config server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+server:
+  port: 8003
+
+spring:
+  # Name of application, used by config server
+  application:
+    name: crud-service
+  # Location of config server
+  cloud:
+    config:
+      uri: http://localhost:8811
+      # Don't stop the application if it can't connect to the config server
+      fail-fast: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
