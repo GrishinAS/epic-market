@@ -1,0 +1,23 @@
+# Base config for receiving main configuration from config server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+spring:
+  # Name of application, used by config server
+  application:
+    name: api-compositor
+  # Location of config server
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: cloud-config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
