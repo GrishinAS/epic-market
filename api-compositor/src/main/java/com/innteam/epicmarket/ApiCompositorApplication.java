@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EpicmarketApplication {
+public class ApiCompositorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EpicmarketApplication.class, args);
+		SpringApplication.run(ApiCompositorApplication.class, args);
 	}
 }

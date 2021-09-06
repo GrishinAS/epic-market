@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class EpicmarketApplication {
+public class CrudServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EpicmarketApplication.class, args);
+		SpringApplication.run(CrudServiceApplication.class, args);
 	}
 }

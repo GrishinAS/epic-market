@@ -16,7 +16,7 @@ spring:
       server:
         native:
           search-locations:
-            - classpath:/
+            - classpath:/apps-configs
 
 # Configuring Eureka client
 eureka:
