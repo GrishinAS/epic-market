@@ -1,0 +1,131 @@
+# CONFIG DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+  labels:
+    app: config-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-server
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+        - name: config-server
+          image: epicmarket/config-server
+          ports:
+            - containerPort: 8811
+
+---
+
+# CONFIG SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: config-server
+  name: config-server
+spec:
+  ports:
+    - containerPort: 8811
+  selector:
+    run: config-server-exposed
+  type: ClusterIP
+
+---
+
+# API DEPLOYMENT
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: api-compositor
+  name: api-compositor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: api-compositor-exposed
+  template:
+    metadata:
+      labels:
+        run: api-compositor-exposed
+    spec:
+      #serviceAccountName: chaos
+      containers:
+        - image: epicmarket/api-compositor
+          name: api-compositor
+          ports:
+            - protocol: TCP
+              port: 8811
+              targetPort: 8080
+
+---
+
+# API SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: api-compositor
+  name: api-compositor
+spec:
+  ports:
+    - port: 8005
+      targetPort: 8080
+  selector:
+    run: api-compositor-exposed
+  type: LoadBalancer
+
+---
+
+# CRUD DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-service
+  labels:
+    app: crud-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crud-service
+  template:
+    metadata:
+      labels:
+        app: crud-service
+    spec:
+      containers:
+        - name: crud-service
+          image: epicmarket/crud-service
+          ports:
+            - protocol: TCP
+              port: 8003
+              targetPort: 8080
+
+---
+
+# CRUD SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: crud-service
+  name: crud-service
+spec:
+  ports:
+      port: 8003
+      targetPort: 8080
+  selector:
+    run: crud-service-exposed
+  type: ClusterIP

@@ -2,10 +2,10 @@ FROM openjdk:16.0.2-jdk-slim
 
 VOLUME /tmp
 
-COPY api-compositor.jar app.jar
+COPY crud-service.jar app.jar
 
 ENV JAVA_OPTS="-Xmx128m -Xms64m"
-ENV SERVICE_NAME="api-compositor"
+ENV SERVICE_NAME="crud-service"
 ENV SPRING_PROFILES_ACTIVE="docker"
 LABEL APP=${SERVICE_NAME}
 LABEL DOMAIN="epic-market"

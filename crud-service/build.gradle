@@ -8,4 +8,5 @@ dependencies {
 
 bootJar {
     enabled = true
+    archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
 }
