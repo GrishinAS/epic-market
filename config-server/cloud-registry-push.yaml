@@ -1,0 +1,4 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/epic-market/config-server', '--build-arg=JAR_FILE=build/libs/config-server.jar', '.']
+images: ['gcr.io/epic-market/config-server']
