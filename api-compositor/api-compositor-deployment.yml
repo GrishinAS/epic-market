@@ -1,0 +1,44 @@
+# APP DEPLOYMENT
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: api-compositor
+  name: api-compositor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: api-compositor-exposed
+  template:
+    metadata:
+      labels:
+        run: api-compositor-exposed
+    spec:
+      serviceAccountName: chaos
+      containers:
+        - image: epicmarket/api-compositor
+          name: api-compositor
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+
+---
+
+# APP SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: api-compositor
+  name: api-compositor
+spec:
+  ports:
+    - port: 8005
+      protocol: TCP
+      targetPort: 8005
+  selector:
+    run: api-compositor-exposed
+  type: NodePort

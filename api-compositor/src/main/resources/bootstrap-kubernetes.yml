@@ -11,6 +11,7 @@ spring:
     name: api-compositor
   # Location of config server
   cloud:
+    kubernetes.enabled: true
     config:
       fail-fast: true
       discovery:
@@ -19,5 +20,5 @@ spring:
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka
+    enabled: false
+
