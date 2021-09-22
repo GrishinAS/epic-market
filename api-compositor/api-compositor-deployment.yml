@@ -1,6 +1,6 @@
 # APP DEPLOYMENT
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -16,7 +16,6 @@ spec:
       labels:
         run: api-compositor-exposed
     spec:
-      serviceAccountName: chaos
       containers:
         - image: epicmarket/api-compositor
           name: api-compositor

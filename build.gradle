@@ -22,6 +22,7 @@ allprojects {
     }
 
     checkstyle {
+        sourceSets = []
         toolVersion = "9.0"
         maxErrors = 0
         maxWarnings = 0

@@ -6,7 +6,6 @@ COPY build/libs/api-compositor.jar app.jar
 
 ENV JAVA_OPTS="-Xmx128m -Xms64m"
 ENV SERVICE_NAME="api-compositor"
-ENV SPRING_PROFILES_ACTIVE="docker"
 LABEL APP=${SERVICE_NAME}
 LABEL DOMAIN="epic-market"
 

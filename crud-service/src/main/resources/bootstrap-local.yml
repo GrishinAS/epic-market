@@ -19,7 +19,7 @@ spring:
       fail-fast: true
       discovery:
         enabled: true
-        service-id: cloud-config-server
+        service-id: config-server
 
 eureka:
   client:
