@@ -4,7 +4,6 @@ management:
     web:
       exposure:
         include: refresh
-
 logging:
   level:
     root: DEBUG
@@ -12,14 +11,15 @@ logging:
 spring:
   # Name of application, used by config server
   application:
-    name: crud-service
+    name: api-compositor
   # Location of config server
   cloud:
+    kubernetes.enabled: false
     config:
       fail-fast: true
       discovery:
         enabled: true
-        service-id: cloud-config-server
+        service-id: config-server
 
 eureka:
   client:

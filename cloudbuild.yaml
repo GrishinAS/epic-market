@@ -1,0 +1,7 @@
+steps:
+  - name: gradle:7.0.2-jdk16
+    entrypoint: gradle
+    args: ['assemble']
+artifacts:
+  objects:
+    paths: ['build']

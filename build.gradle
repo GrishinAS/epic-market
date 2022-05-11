@@ -13,7 +13,6 @@ allprojects {
     apply plugin: 'checkstyle'
 
     group = 'com.innteam'
-    version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '16'
 
     ext['springCloudVersion'] = '2020.0.3'
@@ -23,9 +22,11 @@ allprojects {
     }
 
     checkstyle {
-        toolVersion = "8.26"
+        sourceSets = []
+        toolVersion = "9.0"
         maxErrors = 0
         maxWarnings = 0
+        configFile file("${project.rootDir}/google_checks.xml")
     }
 
     repositories {

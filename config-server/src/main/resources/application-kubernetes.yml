@@ -7,10 +7,7 @@ server:
 # In future we should move it to a git repository
 spring:
   application:
-    name: cloud-config-server
-  # Make native profile active. It allows to store configurations in a classpath
-  profiles:
-    active: native
+    name: config-server
   cloud:
     config:
       server:
@@ -18,8 +15,6 @@ spring:
           search-locations:
             - classpath:/apps-configs
 
-# Configuring Eureka client
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka
+    enabled: false

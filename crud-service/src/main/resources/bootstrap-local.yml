@@ -5,17 +5,21 @@ management:
       exposure:
         include: refresh
 
+logging:
+  level:
+    root: DEBUG
+
 spring:
   # Name of application, used by config server
   application:
-    name: api-compositor
+    name: crud-service
   # Location of config server
   cloud:
     config:
       fail-fast: true
       discovery:
         enabled: true
-        service-id: cloud-config-server
+        service-id: config-server
 
 eureka:
   client:

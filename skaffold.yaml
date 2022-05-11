@@ -1,0 +1,20 @@
+apiVersion: skaffold/v2beta22
+kind: Config
+metadata:
+  name: epic-market
+build:
+  artifacts:
+    - image: epicmarket/config-server
+      context: ./config-server
+      docker: { }
+    - image: epicmarket/api-compositor
+      context: ./api-compositor
+      docker: {}
+    - image: epicmarket/crud-service
+      context: ./crud-service
+      docker: {}
+
+deploy:
+  kubectl:
+    manifests:
+    - general-deployment.yml
