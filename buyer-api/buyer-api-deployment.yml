@@ -1,0 +1,46 @@
+
+
+# BUYER DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyer-api
+  labels:
+    app: buyer-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buyer-api
+  template:
+    metadata:
+      labels:
+        app: buyer-api
+    spec:
+      containers:
+        - name: buyer-api
+          image: epicmarket/buyer-api
+          ports:
+            - protocol: TCP
+              containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: logging.level.root
+              value: DEBUG
+
+---
+
+# BUYER SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: buyer-api
+spec:
+  ports:
+    - port: 8003
+      targetPort: 8080
+  selector:
+    app: buyer-api
+  type: ClusterIP

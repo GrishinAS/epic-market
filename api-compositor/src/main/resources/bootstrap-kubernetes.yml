@@ -17,9 +17,9 @@ spring:
     kubernetes.enabled: true
     config:
       fail-fast: true
-      discovery:
-        enabled: true
-        service-id: config-server
+      uri: http://config-server
+    discovery:
+      enabled: true
 
 eureka:
   client:

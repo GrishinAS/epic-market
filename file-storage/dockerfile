@@ -1,0 +1,12 @@
+FROM openjdk:17.0.1
+
+VOLUME /tmp
+
+COPY build/libs/file-storage-*.jar app.jar
+
+ENV JAVA_OPTS="-Xmx128m -Xms64m --add-opens=java.base/java.net=ALL-UNNAMED"
+ENV SERVICE_NAME="file-storage"
+LABEL APP=${SERVICE_NAME}
+LABEL DOMAIN="epic-market"
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]

@@ -1,3 +1,4 @@
+# nonk8s
 apiVersion: skaffold/v2beta22
 kind: Config
 metadata:
@@ -10,11 +11,39 @@ build:
     - image: epicmarket/api-compositor
       context: ./api-compositor
       docker: {}
-    - image: epicmarket/crud-service
-      context: ./crud-service
+    - image: epicmarket/buyer-api
+      context: ./buyer-api
       docker: {}
+    - image: epicmarket/seller-api
+      context: ./seller-api
+      docker: {}
+    - image: epicmarket/payment-api
+      context: ./payment-api
+      docker: { }
+    - image: epicmarket/logistic-api
+      context: ./logistic-api
+      docker: { }
+    - image: epicmarket/file-storage
+      context: ./file-storage
+      docker: { }
+
 
 deploy:
   kubectl:
     manifests:
-    - general-deployment.yml
+    # Kafka for minikube
+    - deployment/kafka/wurstmeister/zookeeper-deployment.yml
+    - deployment/kafka/wurstmeister/zookeeper-service.yml
+    - deployment/kafka/wurstmeister/kafka-deployment.yml
+    - deployment/kafka/wurstmeister/kafka-service.yml
+    # Core services
+    - config-server/config-server-deployment.yml
+    - api-compositor/api-compositor-deployment.yml
+    - buyer-api/buyer-api-deployment.yml
+    - seller-api/seller-api-deployment.yml
+    - payment-api/payment-api-deployment.yml
+    - logistic-api/logistic-api-deployment.yml
+      # File storage set
+    - file-storage/deployment/postgres-storage.yml
+    - file-storage/deployment/postgres-deployment.yml
+    - file-storage/deployment/file-service.yml

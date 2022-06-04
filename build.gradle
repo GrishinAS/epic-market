@@ -13,7 +13,7 @@ allprojects {
     apply plugin: 'checkstyle'
 
     group = 'com.innteam'
-    sourceCompatibility = '16'
+    sourceCompatibility = '17'
 
     ext['springCloudVersion'] = '2020.0.3'
 
