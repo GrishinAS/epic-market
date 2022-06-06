@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: file-service
+  name: file-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: file-service-exposed
+  template:
+    metadata:
+      labels:
+        run: file-service-exposed
+    spec:
+      containers:
+        - image: epicmarket/file-storage:latest
+          imagePullPolicy: IfNotPresent
+          name: file-service
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+
+---
+
+# APP SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: file-service
+  name: file-service
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    run: file-service-exposed
+  type: NodePort

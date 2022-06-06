@@ -1,0 +1,27 @@
+# Base config for receiving main configuration from config server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  # Name of application, used by config server
+  application:
+    name: payment-api
+  # Location of config server
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka

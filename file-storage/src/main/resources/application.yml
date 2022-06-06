@@ -1,0 +1,14 @@
+spring:
+  mvc.pathmatch.matching-strategy: ant_path_matcher
+  servlet.multipart:
+    max-file-size: 1024KB
+    max-request-size: 1024KB
+    enabled: true
+    location: ${java.io.tmpdir}
+
+  datasource:
+    url: jdbc:postgresql://postgres/${POSTGRES_DB}
+    driverClassName: org.postgresql.Driver
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa.database-platform: org.hibernate.dialect.PostgreSQL10Dialect

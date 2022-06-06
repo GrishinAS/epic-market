@@ -1,0 +1,46 @@
+
+
+# LOGISTIC DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logistic-api
+  labels:
+    app: logistic-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logistic-api
+  template:
+    metadata:
+      labels:
+        app: logistic-api
+    spec:
+      containers:
+        - name: logistic-api
+          image: epicmarket/logistic-api
+          ports:
+            - protocol: TCP
+              containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: logging.level.root
+              value: DEBUG
+
+---
+
+# LOGISTIC SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: logistic-api
+spec:
+  ports:
+    - port: 8003
+      targetPort: 8080
+  selector:
+    app: logistic-api
+  type: ClusterIP

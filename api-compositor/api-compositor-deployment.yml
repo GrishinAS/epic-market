@@ -1,43 +1,46 @@
-# APP DEPLOYMENT
+
+# API DEPLOYMENT
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    run: api-compositor
   name: api-compositor
+  labels:
+    app: api-compositor
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: api-compositor-exposed
+      app: api-compositor
   template:
     metadata:
       labels:
-        run: api-compositor-exposed
+        app: api-compositor
     spec:
       containers:
         - image: epicmarket/api-compositor
           name: api-compositor
           ports:
-            - containerPort: 8082
-              protocol: TCP
+            - protocol: TCP
+              containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: logging.level.root
+              value: DEBUG
 
 ---
 
-# APP SERVICE
+# API SERVICE
 
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    run: api-compositor
-  name: api-compositor
+  name: api-compositor-service
 spec:
   ports:
     - port: 8005
-      protocol: TCP
-      targetPort: 8005
+      targetPort: 8080
   selector:
-    run: api-compositor-exposed
-  type: NodePort
+    app: api-compositor
+  type: LoadBalancer

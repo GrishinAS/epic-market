@@ -1,0 +1,46 @@
+
+
+# SELLER DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seller-api
+  labels:
+    app: seller-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seller-api
+  template:
+    metadata:
+      labels:
+        app: seller-api
+    spec:
+      containers:
+        - name: seller-api
+          image: epicmarket/seller-api
+          ports:
+            - protocol: TCP
+              containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: logging.level.root
+              value: DEBUG
+
+---
+
+# SELLER SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: seller-api
+spec:
+  ports:
+    - port: 8003
+      targetPort: 8080
+  selector:
+    app: seller-api
+  type: ClusterIP
