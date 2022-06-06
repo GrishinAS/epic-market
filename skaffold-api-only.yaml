@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+metadata:
+  name: epic-market
+build:
+  artifacts:
+    - image: epicmarket/api-compositor
+      context: ./api-compositor
+      docker: { }
+  local:
+    push: true
+deploy:
+  kubectl:
+    manifests:
+      - api-compositor/api-compositor-deployment.yml

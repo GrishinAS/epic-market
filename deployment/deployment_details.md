@@ -9,6 +9,7 @@ pushing and deploying your application.
 3. **Helm** - Tool for kubernetes package management. Not used at the moment.
 4. **GCP** - Google cloud
    * deployment/epic-market-kubeconfig - config for connection to gcp cluster from idea
+   * deployment/epic-market-key.json - key for GCP service account, try to make access for docker to upload images to GCP artifactory
 5. **Kafka** - queue management<br>
 In kafka.yml one can set up topics using KAFKA_CREATE_TOPICS env<br>
 Zookeeper should be started before

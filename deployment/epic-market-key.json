@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "epic-market-352304",
+  "private_key_id": "f65d830c8ead046ffb730beee0a1145adb000897",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCviiT/aVzbPwuL\npNKgWjuWwMLlbMJknHgGkCMxtNdvhuNaJ9UcUTkYbm1ZlgS9Dk5FIAeksRTdScV9\nbJjCrX+f9z6GqIh8C95Jc1x1MX0BauBriY62NRQr8nxyC5ShhZb+L1FgxSXkAzYT\nAXdq597TBW7x5K7pdkkmPgz9urAxHAwwpmXSIeIu9ITMxKh+0ct96o0W4mDCiJGV\n4hy6DJ2mNSxcCTjSyICkMfIWEi4e/1rQDEkvzq5wU0pMRpuSWV+M0WDGvh2lBLis\nTsW/Dxb6BVJGCppCSYCsDTvq413TirtxLxFyx14T96zdBaXLaSnRQEttrodKMcl2\n2QEl8vaDAgMBAAECggEAAhMRXd1aZhLoKYXQoWl/k8gCZaCz6Wl596XjbJZ1B1Hi\nRPH8kEGbeaDwdOMTekJ9hU6cGIOpOfZBubo7Ue2n+PV8jS3XsxOW1GpjGNV1Yztm\nnI67G4ckDmLmuphNcN05zBY2EX0y9e9dx7q4NRC5buf9CCnKMWMe+S85ixQWOfZU\nWrkyxxLLOeXhCr8/fHwD8lHslGnKpHXwUkkT5EIDEXUv0O2Xhlx1TFIw5gt4K4wJ\n4/N4XRUkf+OM0Mt1dEA86r5NWD2db6FsChf3XXoC5wNXDLZQwAFpibHmvMDyaKaW\nEW7bIeWLHBcIUsuaGq7nnv0xyKfoCSxHHogRSEwy6QKBgQDrkpSV2cKhqeccJAc4\nm80yQz1hS6RuWGqCbdhHXLv8WChsN0EAL99uF5bY9UVlv2GXn0QHepQxHsyX4rUw\n5V9siRmzv8W5JFn1p49aF4s1ygkJ8/TQ1HNcnRvUMA8kLNzH7bJFxeBjvuxnrc2I\nSFSfw7p1VW81rC9lfd+Y6RN+iwKBgQC+wugqHd1AnyFCxWaYIqVDA4ULSjXUlTm7\nIE3dhFmcr/gqtBmMcVXubbRPwPz4S7cRsjusyLphNmfjtqhOgsUCD2EL4Hnnepla\nO8eykrtzHGda+omm8n40OB1ji/9OcUyzjG/iEX4H1xAXdk8e57m05G6bzfqrVNt0\nukamF7Ge6QKBgQCI0inanw+cNcI1ZfeLuXIEr2kHCZgHPvMdrg7f48yLU+imcbEf\nGq76kljayhn0bqOQHMC2V0ua+/h4fwQd0hsKPtbev5NnZOWa+CcafHIuW5nEXhzi\n7YHTWKzBIOiqaiQROs1AGR2q0UkdLqUhcmE0KcoyO9zLn6YnnGQxu63G4QKBgAMU\nXm8foEzExOKxESDvnj9gtSsjfY77Ab2VnewvkMrIxHbcBXWQ9tQsjTakZPEVN9Vf\nTTtS2j9rg23XqwvpbIjF+skYTJ+CCSu9v1GQsNoA4WJEnShGzebF6SOMRQjdJ2HW\nqI+7vI8f17CpRkm3b/YNogN95cgSTKCrySwxQbrRAoGAI9aV+tCkxQHqgSmAnOdo\nB/fRH3HNp6FFrPCwwoZJLs36K2TndHXsRUAO5xM/ARiaahtR+CBakDAkY1TPCZxL\nSiJpS8hMOn0pc7xPikZM3y90ZDDWuflO7uBZKqf6SHDMOSMyWMWZQXnAopyqm1Dl\n16IZtouJyCSigjadL2ZWrVU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "artifactory-user@epic-market-352304.iam.gserviceaccount.com",
+  "client_id": "104387045424457163054",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/artifactory-user%40epic-market-352304.iam.gserviceaccount.com"
+}

@@ -14,7 +14,7 @@ spring:
     kubernetes.enabled: true
     config:
       fail-fast: true
-      uri: http://config-server
+      uri: http://config-server:8811
     discovery:
       enabled: true
 

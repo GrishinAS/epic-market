@@ -17,6 +17,7 @@ allprojects {
 
     ext['springCloudVersion'] = '2020.0.3'
 
+    // Only because it gives an error about building root jar
     bootJar {
         enabled = false
     }

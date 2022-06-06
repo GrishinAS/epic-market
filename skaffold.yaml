@@ -1,5 +1,4 @@
-# nonk8s
-apiVersion: skaffold/v2beta22
+apiVersion: skaffold/v2beta28
 kind: Config
 metadata:
   name: epic-market
@@ -10,13 +9,13 @@ build:
       docker: { }
     - image: epicmarket/api-compositor
       context: ./api-compositor
-      docker: {}
+      docker: { }
     - image: epicmarket/buyer-api
       context: ./buyer-api
-      docker: {}
+      docker: { }
     - image: epicmarket/seller-api
       context: ./seller-api
-      docker: {}
+      docker: { }
     - image: epicmarket/payment-api
       context: ./payment-api
       docker: { }
@@ -26,24 +25,27 @@ build:
     - image: epicmarket/file-storage
       context: ./file-storage
       docker: { }
-
+  local:
+    push: true
+  tagPolicy:
+    dateTime: {}
 
 deploy:
   kubectl:
     manifests:
-    # Kafka for minikube
-    - deployment/kafka/wurstmeister/zookeeper-deployment.yml
-    - deployment/kafka/wurstmeister/zookeeper-service.yml
-    - deployment/kafka/wurstmeister/kafka-deployment.yml
-    - deployment/kafka/wurstmeister/kafka-service.yml
-    # Core services
-    - config-server/config-server-deployment.yml
-    - api-compositor/api-compositor-deployment.yml
-    - buyer-api/buyer-api-deployment.yml
-    - seller-api/seller-api-deployment.yml
-    - payment-api/payment-api-deployment.yml
-    - logistic-api/logistic-api-deployment.yml
+      # Kafka for minikube
+      - deployment/kafka/wurstmeister/zookeeper-deployment.yml
+      - deployment/kafka/wurstmeister/zookeeper-service.yml
+      - deployment/kafka/wurstmeister/kafka-deployment.yml
+      - deployment/kafka/wurstmeister/kafka-service.yml
+      # Core services
+      - config-server/config-server-deployment.yml
+      - api-compositor/api-compositor-deployment.yml
+      - buyer-api/buyer-api-deployment.yml
+      - seller-api/seller-api-deployment.yml
+      - payment-api/payment-api-deployment.yml
+      - logistic-api/logistic-api-deployment.yml
       # File storage set
-    - file-storage/deployment/postgres-storage.yml
-    - file-storage/deployment/postgres-deployment.yml
-    - file-storage/deployment/file-service.yml
+      - file-storage/deployment/postgres-storage.yml
+      - file-storage/deployment/postgres-deployment.yml
+      - file-storage/deployment/file-service.yml
