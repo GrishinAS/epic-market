@@ -1,5 +1,5 @@
-# Epic Market.
-Online c2c car parts shop, created as a pet project.
+# Template.
+Template for fast creation of microservices project. Contains kubernetes, kafka, postgresql and file service .
 Microservice system deployed in Kubernetes consist of:
 1. **seller-api** - Service for placing lots;
    * Placing lots by categories tree, uploads images of them.
