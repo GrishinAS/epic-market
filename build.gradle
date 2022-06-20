@@ -3,6 +3,10 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
+jar.enabled = false
+build.enabled = false
+bootJar.enabled = false
+bootJarMainClassName.enabled = false
 
 
 allprojects {
@@ -16,11 +20,6 @@ allprojects {
     sourceCompatibility = '17'
 
     ext['springCloudVersion'] = '2020.0.3'
-
-    // Only because it gives an error about building root jar
-    bootJar {
-        enabled = false
-    }
 
     checkstyle {
         sourceSets = []

@@ -3,3 +3,14 @@ server:
 
 endpoints:
   actuator.enabled: true
+
+kafka:
+  address: ${service_protocol}://kafka-service:9092
+  consumer.group: seller-api
+
+com:
+  epicmarket:
+    file:
+      storage:
+        url: ${service_protocol}://file-service:8082
+        endpoint: /file
